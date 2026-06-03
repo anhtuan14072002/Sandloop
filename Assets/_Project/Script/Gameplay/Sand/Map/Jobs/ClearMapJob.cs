@@ -25,7 +25,8 @@ namespace Sand.Map.Jobs
                 y = y,
                 hasValue = 0,
                 isBorder = 0,
-                color = color
+                color = color,
+                baseColor = color
             };
         }
     }
