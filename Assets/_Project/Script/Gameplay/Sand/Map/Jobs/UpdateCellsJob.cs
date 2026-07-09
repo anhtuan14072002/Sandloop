@@ -6,12 +6,11 @@ using UnityEngine;
 namespace Sand.Map.Jobs
 {
     [BurstCompile]
-    public struct UpdateCellsJob : IJobParallelFor
+    public struct UpdateCellsFromTexturePixelsJob : IJobParallelFor
     {
         [ReadOnly] public NativeArray<Color32> texturePixels;
         public NativeArray<Color32> pixels;
         public NativeArray<Cell> cells;
-        
         public int width;
 
         public void Execute(int index)
@@ -27,8 +26,7 @@ namespace Sand.Map.Jobs
                 y = y,
                 hasValue = color.a > 0 ? (byte)1 : (byte)0,
                 isBorder = 0,
-                color = color,
-                baseColor = color
+                color = color
             };
         }
     }
